@@ -247,7 +247,7 @@
           val = $.map(self.items(), function(item) {
             return self.options.itemValue(item).toString();
           });
-
+      if (!self.options.isSelect) val = val.join(self.options.delimiter);
       self.$element.val(val, true).trigger('change');
     },
 
