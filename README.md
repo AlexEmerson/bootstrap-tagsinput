@@ -1,5 +1,6 @@
 # Bootstrap Tags Input [![Build Status](https://travis-ci.org/timschlechter/bootstrap-tagsinput.svg?branch=master)](https://travis-ci.org/TimSchlechter/bootstrap-tagsinput)
 Bootstrap Tags Input is a jQuery plugin providing a Twitter Bootstrap user interface for managing tags.
+This fork adds 'delimiter' option to the plugin.
 
 ## Usage
 Examples can be found [here](http://timschlechter.github.com/bootstrap-tagsinput/examples/).
