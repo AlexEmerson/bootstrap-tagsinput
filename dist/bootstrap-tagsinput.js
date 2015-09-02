@@ -312,10 +312,10 @@
           matcher: typeahead.matcher || function (text) {
             return (text.toLowerCase().indexOf(this.query.trim().toLowerCase()) !== -1);
           },
-          sorter: typehead.sorter || function (texts) {
+          sorter: typeahead.sorter || function (texts) {
             return texts.sort();
           },
-          highlighter: typehead.highlighter || function (text) {
+          highlighter: typeahead.highlighter || function (text) {
             var regex = new RegExp( '(' + this.query + ')', 'gi' );
             return text.replace( regex, "<strong>$1</strong>" );
           }
