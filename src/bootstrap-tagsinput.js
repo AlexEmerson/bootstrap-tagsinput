@@ -271,10 +271,10 @@
         var typeahead = self.options.typeahead || {};
 
         makeOptionFunction(typeahead, 'source');
-        makeOptionFunction(typeahead, 'matcher');
-        makeOptionFunction(typeahead, 'updater');
-        makeOptionFunction(typeahead, 'sorter');
-        makeOptionFunction(typeahead, 'highlighter');
+        if (typeahead.matcher) makeOptionFunction(typeahead, 'matcher');
+        if (typeahead.updater) makeOptionFunction(typeahead, 'updater');
+        if (typeahead.sorter) makeOptionFunction(typeahead, 'sorter');
+        if (typeahead.highlighter) makeOptionFunction(typeahead, 'highlighter');
 
         self.$input.typeahead($.extend({}, typeahead, {
           source: function (query, process) {
