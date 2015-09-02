@@ -271,6 +271,10 @@
         var typeahead = self.options.typeahead || {};
 
         makeOptionFunction(typeahead, 'source');
+        makeOptionFunction(typeahead, 'matcher');
+        makeOptionFunction(typeahead, 'updater');
+        makeOptionFunction(typeahead, 'sorter');
+        makeOptionFunction(typeahead, 'highlighter');
 
         self.$input.typeahead($.extend({}, typeahead, {
           source: function (query, process) {
@@ -301,21 +305,21 @@
                .then(processItems);
             }
           },
-          updater: function (text) {
+          updater: typeahead.updater || function (text) {
             self.add(this.map[text]);
             return this.map[text];
           },
-          matcher: function (text) {
+          matcher: typeahead.matcher || function (text) {
             return (text.toLowerCase().indexOf(this.query.trim().toLowerCase()) !== -1);
           },
-          sorter: function (texts) {
+          sorter: typehead.sorter || function (texts) {
             return texts.sort();
           },
-          highlighter: function (text) {
+          highlighter: typehead.highlighter || function (text) {
             var regex = new RegExp( '(' + this.query + ')', 'gi' );
             return text.replace( regex, "<strong>$1</strong>" );
           }
-        }));
+        } ));
       }
 
       // typeahead.js
