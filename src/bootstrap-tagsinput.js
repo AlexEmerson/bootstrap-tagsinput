@@ -258,8 +258,9 @@
       var self = this;
 
       self.options = $.extend({}, defaultOptions, options);
-      // When itemValue is set, freeInput should always be false
-      if (self.objectItems)
+
+      // When itemValue is set, freeInput should be false if not set explicitly
+      if (self.objectItems && !options.freeInput)
         self.options.freeInput = false;
 
       makeOptionItemFunction(self.options, 'itemValue');
